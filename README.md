@@ -1,11 +1,14 @@
 # minifylib
 
-The minification section from another app. I pulled it out into it's own lib so I can reuse it.
+The minification section from another app. I pulled it out into it's own lib so I can reuse it. Full documentation can be found [here](http://docs.bryanckizer.com/minifylib/).
 
 
 #### Quick Example
 ```cs
-
+  Minifier mini = new Minifier();
+  string css = File.ReadAllText( "styles.css" );
+  string compressed = mini.Minify( css );
+  File.WriteAllText( "styles.min.css", compressed );
 ```
 
 ### License
