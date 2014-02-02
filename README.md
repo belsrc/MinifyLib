@@ -1,4 +1,4 @@
-# minifylib
+# MinifyLib
 
 The minification section from another app. I pulled it out into it's own lib so I can reuse it. Full documentation can be found [here](http://docs.bryanckizer.com/minifylib/).
 
@@ -12,7 +12,7 @@ The minification section from another app. I pulled it out into it's own lib so 
 ```
 
 ### License
-minifylib is released under a BSD 3-Clause License
+MinifyLib is released under a BSD 3-Clause License
 
 Copyright &copy; 2014, Bryan Kizer
 All rights reserved. 
