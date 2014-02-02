@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minifylib", "minifylib\minifylib.csproj", "{B7F4DBF7-6C1E-4D9A-BDD0-E3766209D3AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinifyLibTests", "Tests\MinifyLibTests.csproj", "{DA887DCC-1917-473E-9D52-F9649127A20B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7F4DBF7-6C1E-4D9A-BDD0-E3766209D3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F4DBF7-6C1E-4D9A-BDD0-E3766209D3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F4DBF7-6C1E-4D9A-BDD0-E3766209D3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F4DBF7-6C1E-4D9A-BDD0-E3766209D3AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA887DCC-1917-473E-9D52-F9649127A20B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA887DCC-1917-473E-9D52-F9649127A20B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA887DCC-1917-473E-9D52-F9649127A20B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA887DCC-1917-473E-9D52-F9649127A20B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
