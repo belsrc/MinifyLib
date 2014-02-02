@@ -14,7 +14,7 @@ REM Generate CRAP Analysis
 REM "E:\Programming Enviroments\Crap4n\0.3.0.46\crap4n-console.exe" /cc=E:\Programming\!Csharp\MinifyLib\Docs\TestResults.xml /cm=SourceMonitorResult.xml
 
 REM Generate SandCastle Documentation
-"C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" "E:\Programming\!Csharp\MinifyLib\Docs\minidocs.shfbproj"
+"C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe" "E:\Programming\!Csharp\MinifyLib\Docs\MiniDocs.shfbproj"
 
 REM Clean up
 COPY "E:\Programming\!Csharp\report.css" "E:\Programming\!Csharp\MinifyLib\Docs\CoverageResult"
