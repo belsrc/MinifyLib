@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MinifyLib</name>
+    </assembly>
+    <members>
+        <member name="T:MinifyLib.Color.ColorCompressor">
+            <summary>
+            Class to do the various color minifications on css files.
+            </summary>
+        </member>
+        <member name="T:MinifyLib.Color.IColorCompressor">
+            <summary>
+            Exposes the methods needed to compress color codes.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Color.IColorCompressor.CompressHex(System.String)">
+            <summary>
+            Compresses a six character hexadecimal value to its three character representation if possible.
+            </summary>
+            <param name="hexadecimal">A hexadecimal value.</param>
+            <returns>
+            If possible, returns the compressed hex value. Otherwise, returns the original hex.
+            </returns>
+        </member>
+        <member name="M:MinifyLib.Color.IColorCompressor.CompressRgb(System.Byte[])">
+            <summary>
+            Compresses RGB values.
+            </summary>
+            <param name="rgb">A byte array containing the Red, Green, Bblue values</param>
+            <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.IColorCompressor.CompressHsl(System.Single,System.Single,System.Single)">
+            <summary>
+            Compresses HSL values.
+            </summary>
+            <param name="hue">Hue value contained in the set [0, 1].</param>
+            <param name="saturation">Saturation value contained in the set [0, 1].</param>
+            <param name="lightness">Lightness value contained in the set [0, 1].</param>
+            <returns>A hexadecimal value representing the supplied HSL values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.IColorCompressor.HexadecimalToName(System.String)">
+            <summary>
+            Swaps out a hexadecimal color value for its smaller literal color name.
+            </summary>
+            <param name="hexadecimal">A compressed hexadecimal value.</param>
+            <returns>
+            Literal color name, it a smaller one exists. Otherwise, returns the hex value.
+            </returns>
+        </member>
+        <member name="M:MinifyLib.Color.IColorCompressor.NameToHexadecimal(System.String)">
+            <summary>
+            Swaps out a literal color name for its smaller hexadecimal color value.
+            </summary>
+            <param name="name">The color name.</param>
+            <returns>
+            The supplied string with the literal names converted to hex if possible.
+            </returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.#ctor(MinifyLib.Color.IColorConverter)">
+            <summary>
+            Initializes a new instance of the ColorConversions class.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.CompressHex(System.String)">
+            <summary>
+            Compresses a six character hexadecimal value to its three character representation if possible.
+            </summary>
+            <param name="hexadecimal">A hexadecimal value.</param>
+            <returns>
+            If possible, returns the compressed hex value. Otherwise, returns the original hex.
+            </returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.CompressRgb(System.Byte[])">
+            <summary>
+            Compresses RGB values.
+            </summary>
+            <param name="rgb">A byte array containing the Red, Green, Bblue values</param>
+            <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.CompressRgb(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Compresses RGB values.
+            </summary>
+            <param name="red">The Red color value.</param>
+            <param name="green">The Green color value.</param>
+            <param name="blue">The Blue color value.</param>
+            <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.CompressHsl(System.Single,System.Single,System.Single)">
+            <summary>
+            Compresses HSL values.
+            </summary>
+            <param name="hue">Hue value contained in the set [0, 1].</param>
+            <param name="saturation">Saturation value contained in the set [0, 1].</param>
+            <param name="lightness">Lightness value contained in the set [0, 1].</param>
+            <returns>A hexadecimal value representing the supplied HSL values.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when one of the values is not in the set [0,1]</exception>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.HexadecimalToName(System.String)">
+            <summary>
+            Swaps out a hexadecimal color value for its smaller literal color name.
+            </summary>
+            <param name="hexadecimal">A compressed hexadecimal value.</param>
+            <returns>
+            Literal color name, it a smaller one exists. Otherwise, returns the hex value.
+            </returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorCompressor.NameToHexadecimal(System.String)">
+            <summary>
+            Swaps out a literal color name for its smaller hexadecimal color value.
+            </summary>
+            <param name="name">The color name.</param>
+            <returns>
+            The supplied string with the literal names converted to hex if possible.
+            </returns>
+        </member>
+        <member name="T:MinifyLib.Color.ColorConverter">
+            <summary>
+            Class to convert between different color codes.
+            </summary>
+        </member>
+        <member name="T:MinifyLib.Color.IColorConverter">
+            <summary>
+            Exposes methods to convert color codes.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Color.IColorConverter.ConvertRgbToHex(System.Byte[])">
+            <summary>
+            Converts an RGB color value to Hexadecimal.
+            </summary>
+            <param name="rgb">A byte array containing the R, G, B values</param>
+            <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.IColorConverter.ConvertHslToHex(System.Single,System.Single,System.Single)">
+            <summary>
+            Converts an HSL color value to Hexadecimal.
+            </summary>
+            <param name="hue">Hue value contained in the set.</param>
+            <param name="saturation">Saturation value contained in the set.</param>
+            <param name="lightness">Lightness value contained in the set.</param>
+            <returns>A hexadecimal value representing the supplied HSL values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorConverter.#ctor">
+            <summary>
+            Initializes a new instance of the ColorConverter class.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Color.ColorConverter.ConvertRgbToHex(System.Byte[])">
+            <summary>
+            Converts an RGB color value to Hexadecimal.
+            </summary>
+            <param name="rgb">A byte array containing the R, G, B values</param>
+            <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorConverter.ConvertRgbToHex(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Converts an RGB color value to Hexadecimal.
+            </summary>
+            <param name="red">The Red color value.</param>
+            <param name="green">The Green color value.</param>
+            <param name="blue">The Blue color value.</param>
+            <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        </member>
+        <member name="M:MinifyLib.Color.ColorConverter.ConvertHslToHex(System.Single,System.Single,System.Single)">
+            <summary>
+            Converts an HSL color value to Hexadecimal.
+            </summary>
+            <remarks>
+            <para>Ported from mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript.</para>
+            <para>Conversion formula adapted from en.wikipedia.org/wiki/HSL_color_space.</para>
+            </remarks>
+            <param name="hue">Hue value contained in the set [0, 360].</param>
+            <param name="saturation">Saturation value contained in the set [0, 100].</param>
+            <param name="lightness">Lightness value contained in the set [0, 100].</param>
+            <returns>A hexadecimal value representing the supplied HSL values.</returns>
+        </member>
+        <member name="T:MinifyLib.Manipulate.Manipulation">
+            <summary>
+            Class for manipulating the CSS source file string.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.#ctor(MinifyLib.Color.IColorCompressor,System.String)">
+            <summary>
+            Initializes a new instance of the Manipulation class.
+            </summary>
+            <param name="compressor">An instance of IColorCompressor.</param>
+            <param name="source">The CSS source string.</param>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.EmptyContainers">
+            <summary>
+            Empties the list containing the placeheld values.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CleanContents(System.String)">
+            <summary>
+            Cleans up quoted content strings.
+            </summary>
+            <param name="input">The input string.</param>
+            <remarks>Remove quoted strings, remaining spaces, put quoted strings back</remarks>
+            <returns>The cleaned content string.</returns>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CleanDataUrls(System.String)">
+            <summary>
+            Cleans the format of data urls.
+            </summary>
+            <param name="input">The input string.</param>
+            <remarks>
+            Get rid of any spaces and quotes in the type declaration
+            Since theres a possible charset (for fonts) Ill jump to the base64 and leave it at that,
+            Get rid of any space and quotes at the end
+            </remarks>
+            <returns>The cleaned data url string.</returns>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CleanNormUrls(System.String)">
+            <summary>
+            Cleans the format of urls.
+            </summary>
+            <param name="input">The input string.</param>
+            <remarks>
+            Remove the quotes since they arent needed in urls
+            Get rid of any space at the beginning or end
+            </remarks>
+            <returns>The cleaned url string.</returns>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.SwapForPlaceholders">
+            <summary>
+            Replaces some values from the CSS source string that shouldn't be ran through the minifier.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>
+            Sets placeholders for Data URLs, normal URLs, Pseudo classes, Content values, and important Comments.
+            </remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.NormalizeSource">
+            <summary>
+            Normalizes the content of the CSS source string.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>Get rid of comment strings, Get rid of newline characters, Normalize remainig whitespace.</remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CleanSelectors">
+            <summary>
+            Removes whitespace around operators.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>Operators: : ; ,  * > + ~ = ^= $= *= |= ~= !</remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CleanBraces">
+            <summary>
+            Cleans the whitespace around the braces in the source string.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>Braces: {} [] ()</remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CleanUnnecessary">
+            <summary>
+            Removes/shortens various unnecessary values.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>
+            Get rid of last semi-colon before closing brace, 
+            leading zeros on decimals, 
+            measurements on zero values, 
+            shorten zero'd out values (margin: 0 0 0 0), 
+            set various borders to zero if they were previously 'none', 
+            shorten MS filter, 
+            remove unused rule-sets.
+            </remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.ConvertColors">
+            <summary>
+            Converts RGB and HSL color values to their hex equivalent.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>Replace all rgb|hsl(#,#,#) and rgba|hsla(#,#,#,1) strings with their hex value.</remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CompressHexValues">
+            <summary>
+            Compresses hex values if possible.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>
+            Match hex values that are 6 long and compress them down to 3 if possible, 
+            Grab all the hex strings and replace with the literal color name if is shorter than the hex value.
+            </remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.CompressColorNames">
+            <summary>
+            Replaces any color literal names with the shorter hex value.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.FixIllFormedHsl">
+            <summary>
+            Fixes any damaged HSL values from other compression methods.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>
+            Since I kind of...butcher hsla colors with 0 values I need to fix them
+            Find all hsl/hsla colors with no '%' on the S and L values
+            Split the match on the ','
+            Since one may be good and the other not, strip '%'
+            Put it back together with the '%'
+            </remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.ReplaceTransparent">
+            <summary>
+            Replaces transparent color codes with the literal name.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+            <remarks>
+            'transparent' == rgba(0,0,0,0) == hsla(0,0%,0%,0)
+            Should be fine...if it supports Alpha should support the 'transparent' color literal
+            ...right?
+            </remarks>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.ReplaceFontWeight">
+            <summary>
+            Replaces the named literal font weight with the numeric value.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+        </member>
+        <member name="M:MinifyLib.Manipulate.Manipulation.ReplacePlaceholders">
+            <summary>
+            Returns the values the were taken out with SwapForPlaceholders.
+            </summary>
+            <returns>The current Manipulation object.</returns>
+        </member>
+        <member name="P:MinifyLib.Manipulate.Manipulation.BaseString">
+            <summary>
+            Gets the base source string.
+            </summary>
+        </member>
+        <member name="P:MinifyLib.Manipulate.Manipulation.AlteredString">
+            <summary>
+            Gets the altered source string.
+            </summary>
+        </member>
+        <member name="T:MinifyLib.Minifier">
+            <summary>
+            A class to handle the minification of CSS files.
+            </summary>
+            <remarks>
+            Some RE's were pulled from Isaac Schlueter's rules list as is, 
+            others (most) were shortened or modified in some manner and 
+            some are new (where I thought I could go a little more in depth)
+            
+            Isaac's list can me found on github - 
+            github.com/isaacs/cssmin/blob/master/rules.txt
+            </remarks>
+        </member>
+        <member name="M:MinifyLib.Minifier.#ctor">
+            <summary>
+            Initializes a new instance of the Minifier class.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.Minifier.Minify(System.String)">
+            <summary>
+            Cleans/compresses several aspects of CSS code.
+            </summary>
+            <remarks>
+            This should be everything...
+            </remarks>
+            <param name="css">The string value of the file(s).</param>
+            <returns>A minified version of the supplied CSS string.</returns>
+        </member>
+        <member name="T:MinifyLib.MinifyException">
+            <summary>
+            Class for handling Minification Exceptions
+            </summary>
+        </member>
+        <member name="M:MinifyLib.MinifyException.#ctor">
+            <summary>
+            Initializes a new instance of the MinifyException class.
+            </summary>
+        </member>
+        <member name="M:MinifyLib.MinifyException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MinifyException class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:MinifyLib.MinifyException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the MinifyException class with a specified error message 
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified.</param>
+        </member>
+        <member name="M:MinifyLib.MinifyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the MinifyException class with serialized data.
+            </summary>
+            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+    </members>
+</doc>

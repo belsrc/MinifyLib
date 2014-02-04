@@ -30,13 +30,13 @@
 //    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // -------------------------------------------------------------------------------
-namespace MinifyLib {
+namespace MinifyLib.Color {
     using System;
 
     /// <summary>
     /// Class to convert between different color codes.
     /// </summary>
-    public class ColorConverter {
+    public class ColorConverter : IColorConverter {
 
         /// <summary>
         /// Initializes a new instance of the ColorConverter class.

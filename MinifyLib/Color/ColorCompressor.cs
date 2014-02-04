@@ -30,7 +30,7 @@
 //    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // -------------------------------------------------------------------------------
-namespace MinifyLib {
+namespace MinifyLib.Color {
     using System;
     using System.Collections.Generic;
     using System.Globalization;
@@ -40,7 +40,7 @@ namespace MinifyLib {
     /// <summary>
     /// Class to do the various color minifications on css files.
     /// </summary>
-    public class ColorCompressor {
+    public class ColorCompressor : IColorCompressor {
 
         // Dictionary where the hex value [value] is smaller than the literal name [key].
         private Dictionary<string, string> _hexSmallerList;
@@ -48,10 +48,18 @@ namespace MinifyLib {
         // Dictionary where the literal name [value] is smaller than the hex value [key].
         private Dictionary<string, string> _nameSmallerList;
 
+        private IColorConverter _convert;
+
         /// <summary>
         /// Initializes a new instance of the ColorConversions class.
         /// </summary>
-        public ColorCompressor() {
+        public ColorCompressor( IColorConverter converter ) {
+            if( converter == null ) {
+                throw new ArgumentNullException( "converter", "The compressor can not be null." );
+            }
+
+            this._convert = converter;
+
             // Names and values taken from Chris Coyier's post
             // @ css-tricks.com/snippets/css/named-colors-and-hex-equivalents/
             this._nameSmallerList = new Dictionary<string, string>() {
@@ -139,7 +147,7 @@ namespace MinifyLib {
         /// <param name="rgb">A byte array containing the Red, Green, Bblue values</param>
         /// <returns>A hexadecimal value representing the supplied RGB values.</returns>
         public string CompressRgb( byte[] rgb ) {
-            return this.CompressHex( new ColorConverter().ConvertRgbToHex( rgb ) );
+            return this.CompressHex( this._convert.ConvertRgbToHex( rgb ) );
         }
 
         /// <summary>
@@ -174,7 +182,7 @@ namespace MinifyLib {
                 throw new ArgumentOutOfRangeException( "lightness", lightness, "Lightness must be between 0 and 100." );
             }
 
-            return this.CompressHex( new ColorConverter().ConvertHslToHex( hue, saturation, lightness ) );
+            return this.CompressHex( this._convert.ConvertHslToHex( hue, saturation, lightness ) );
         }
 
         /// <summary>
@@ -188,7 +196,7 @@ namespace MinifyLib {
             if( this._nameSmallerList.Keys.Contains( hexadecimal ) ) {
                 return this._nameSmallerList[hexadecimal];
             }
-            
+
             return hexadecimal;
         }
 

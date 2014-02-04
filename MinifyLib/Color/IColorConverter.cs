@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------------
-//    Minifier.cs
+//    IColorConverter.cs
 //    Copyright (c) 2014 Bryan Kizer
 //    All rights reserved.
 //
@@ -30,56 +30,30 @@
 //    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 //    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // -------------------------------------------------------------------------------
-namespace MinifyLib {
-    using MinifyLib.Color;
-    using MinifyLib.Manipulate;
+namespace MinifyLib.Color {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
 
     /// <summary>
-    /// A class to handle the minification of CSS files.
+    /// Exposes methods to convert color codes.
     /// </summary>
-    /// <remarks>
-    /// Some RE's were pulled from Isaac Schlueter's rules list as is, 
-    /// others (most) were shortened or modified in some manner and 
-    /// some are new (where I thought I could go a little more in depth)
-    /// 
-    /// Isaac's list can me found on github - 
-    /// github.com/isaacs/cssmin/blob/master/rules.txt
-    /// </remarks>
-    public class Minifier {
-        private Manipulation _manip;
+    public interface IColorConverter {
 
         /// <summary>
-        /// Initializes a new instance of the Minifier class.
+        /// Converts an RGB color value to Hexadecimal.
         /// </summary>
-        public Minifier() { }
+        /// <param name="rgb">A byte array containing the R, G, B values</param>
+        /// <returns>A hexadecimal value representing the supplied RGB values.</returns>
+        string ConvertRgbToHex( byte[] rgb );
 
         /// <summary>
-        /// Cleans/compresses several aspects of CSS code.
+        /// Converts an HSL color value to Hexadecimal.
         /// </summary>
-        /// <remarks>
-        /// This should be everything...
-        /// </remarks>
-        /// <param name="css">The string value of the file(s).</param>
-        /// <returns>A minified version of the supplied CSS string.</returns>
-        public string Minify( string css ) {
-
-            ColorCompressor colors = new ColorCompressor( new ColorConverter() );
-            this._manip = new Manipulation( colors, css );
-            this._manip.SwapForPlaceholders()
-                       .NormalizeSource()
-                       .CleanSelectors()
-                       .CleanBraces()
-                       .CleanUnnecessary()
-                       .ConvertColors()
-                       .CompressHexValues()
-                       .CompressColorNames()
-                       .FixIllFormedHsl()
-                       .ReplaceTransparent()
-                       .ReplaceFontWeight()
-                       .ReplacePlaceholders();
-
-            // Return the string after trimming any leading or trailing spaces
-            return this._manip.AlteredString.Trim();
-        }
+        /// <param name="hue">Hue value contained in the set.</param>
+        /// <param name="saturation">Saturation value contained in the set.</param>
+        /// <param name="lightness">Lightness value contained in the set.</param>
+        /// <returns>A hexadecimal value representing the supplied HSL values.</returns>
+        string ConvertHslToHex( float hue, float saturation, float lightness );
     }
 }

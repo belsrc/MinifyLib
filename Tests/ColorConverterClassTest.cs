@@ -1,7 +1,7 @@
 ﻿
 namespace MinifyLibTests {
     using NUnit.Framework;
-    using MinifyLib;
+    using MinifyLib.Color;
     using System.Collections.Generic;
 
     [TestFixture]
@@ -9,14 +9,8 @@ namespace MinifyLibTests {
 
         private ColorConverter _converter;
 
-        [SetUp]
-        public void Init() {
+        public ColorConverterClassTest() {
             this._converter = new ColorConverter();
-        }
-
-        [TearDown]
-        public void Cleanup() {
-            this._converter = null;
         }
 
         [Test]

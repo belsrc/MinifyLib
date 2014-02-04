@@ -46,10 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorCompressor.cs" />
-    <Compile Include="ColorConverter.cs" />
+    <Compile Include="Color\ColorCompressor.cs" />
+    <Compile Include="Color\ColorConverter.cs" />
+    <Compile Include="Color\IColorCompressor.cs" />
+    <Compile Include="Color\IColorConverter.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Minify.cs" />
+    <Compile Include="Manipulate\Manipulation.cs" />
+    <Compile Include="Minifier.cs" />
     <Compile Include="MinifyException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

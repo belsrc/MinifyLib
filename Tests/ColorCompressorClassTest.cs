@@ -2,7 +2,7 @@
 namespace MinifyLibTests {
     using System;
     using System.Collections.Generic;
-    using MinifyLib;
+    using MinifyLib.Color;
     using NUnit.Framework;
 
     [TestFixture]
@@ -10,14 +10,8 @@ namespace MinifyLibTests {
         
         private ColorCompressor _compressor;
 
-        [SetUp]
-        public void Init() {
-            this._compressor = new ColorCompressor();
-        }
-
-        [TearDown]
-        public void Cleanup() {
-            this._compressor = null;
+        public ColorCompressorClassTest() {
+            this._compressor = new ColorCompressor( new ColorConverter() );
         }
 
         [Test]
@@ -38,6 +32,12 @@ namespace MinifyLibTests {
                 string actual = this._compressor.CompressHex( hexes[i] );
                 Assert.AreEqual( expecteds[i], actual, "Expected " + expecteds[i] + " but was " + actual );
             }
+        }
+
+        [Test]
+        [ExpectedException( typeof( ArgumentNullException ) )]
+        public void ConstructorException() {
+            var tmp = new ColorCompressor( null ); 
         }
 
         [Test]
