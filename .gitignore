@@ -29,6 +29,8 @@
 *.vsmdi
 *.vsp
 *.vspscc
+*.lastcodeanalysissucceeded
+*.CodeAnalysisLog.xml
 *_i.c
 *_p.c
 .builds
