@@ -1,3 +1,5 @@
+[![No Maintenance Intended](https://img.shields.io/badge/No%20Maintenance%20Intended-x-red.svg?style=flat-square&longCache=true)](http://unmaintained.tech/)
+
 # MinifyLib
 
 The minification section from another app. I pulled it out into it's own lib so I can reuse it. Full documentation can be found [here](http://docs.bryanckizer.com/minifylib/).
